@@ -38,4 +38,11 @@ public class UserResource {
         userService.delete(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<User> update(@PathVariable Long id,@RequestBody User user){
+        user=userService.update(id, user);
+        return ResponseEntity.status(HttpStatus.OK).body(user);
+    }
+
 }
